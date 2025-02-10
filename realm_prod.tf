@@ -4,6 +4,7 @@ resource "keycloak_realm" "prod" {
   display_name           = "SSO PROD"
   reset_password_allowed = true
   login_theme            = "sika-io"
+  verify_email           = true
   smtp_server {
     host = "maildev-smtp.example-keycloak"
     port = "25"
