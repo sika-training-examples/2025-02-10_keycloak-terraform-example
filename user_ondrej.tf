@@ -30,3 +30,12 @@ resource "keycloak_user_groups" "ondrej" {
     keycloak_group.grafana_admins.id,
   ]
 }
+
+resource "keycloak_user_roles" "ondrej" {
+  realm_id = keycloak_realm.prod.id
+  user_id  = keycloak_user.ondrej["prod"].id
+
+  role_ids = [
+    keycloak_role.editor.id,
+  ]
+}

@@ -39,3 +39,12 @@ resource "keycloak_user_groups" "foo" {
     keycloak_group.grafana_viewers.id,
   ]
 }
+
+resource "keycloak_user_roles" "foo" {
+  realm_id = keycloak_realm.prod.id
+  user_id  = keycloak_user.foo["prod"].id
+
+  role_ids = [
+    keycloak_role.viewer.id,
+  ]
+}
