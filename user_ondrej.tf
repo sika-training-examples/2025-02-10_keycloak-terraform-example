@@ -36,6 +36,6 @@ resource "keycloak_user_roles" "ondrej" {
   user_id  = keycloak_user.ondrej["prod"].id
 
   role_ids = [
-    keycloak_role.editor.id,
+    keycloak_role.admin.id,
   ]
 }
