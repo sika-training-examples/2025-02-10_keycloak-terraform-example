@@ -47,5 +47,6 @@ resource "keycloak_user_roles" "jozef" {
 
   role_ids = [
     keycloak_role.admin.id,
+    keycloak_role.grafana_editor.id,
   ]
 }

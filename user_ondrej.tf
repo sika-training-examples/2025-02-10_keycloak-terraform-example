@@ -37,5 +37,7 @@ resource "keycloak_user_roles" "ondrej" {
 
   role_ids = [
     keycloak_role.admin.id,
+    keycloak_role.editor.id,
+    keycloak_role.grafna_admin.id,
   ]
 }

@@ -17,3 +17,13 @@ resource "keycloak_role" "admin" {
     keycloak_role.viewer.id,
   ]
 }
+
+resource "keycloak_role" "grafana_editor" {
+  realm_id = keycloak_realm.prod.id
+  name     = "grafana-editor"
+}
+
+resource "keycloak_role" "grafna_admin" {
+  realm_id = keycloak_realm.prod.id
+  name     = "grafana-admin"
+}
