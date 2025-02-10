@@ -29,3 +29,13 @@ resource "smtp_send_mail" "foo" {
   subject = "New SSO User"
   body    = "https://keycloak.sikademo.com/realms/${each.key}/login-actions/reset-credentials"
 }
+
+
+resource "keycloak_user_groups" "foo" {
+  realm_id = keycloak_realm.prod.id
+  user_id  = keycloak_user.foo["prod"].id
+
+  group_ids = [
+    keycloak_group.grafana_viewers.id,
+  ]
+}
