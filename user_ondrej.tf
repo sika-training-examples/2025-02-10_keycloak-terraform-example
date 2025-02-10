@@ -1,4 +1,10 @@
 resource "keycloak_user" "ondrej" {
+  lifecycle {
+    ignore_changes = [
+      required_actions,
+    ]
+  }
+
   for_each = local.realms
 
   realm_id = each.value
